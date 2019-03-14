@@ -6,6 +6,10 @@ const forecast = require("./utiles/forecast")
 
 //tao 1 application, nhu tao 1 server page ten la app
 const app = express();
+const port = process.env.PORT || 3000; //neu chi su dung cong 3000 thi chi co may minh co the chay duoc server
+                               //chung ta muon server co the chay o mot moi truong khac chang han nhu heroku
+                               //heroku se tra ve cong cua ho va server co the chay tren moi truong heroku thong qua cong do
+
 const publicDirectoryPath = path.join(__dirname,"../public");
 const ViewPath = path.join(__dirname,"../templates/views");
 const partialPath = path.join(__dirname,"../templates/partials");
@@ -89,6 +93,6 @@ app.get("*",(req,res)=>{
     })
 })
 
-app.listen(3000,() => {
-    console.log("The server is running on port 3000");
+app.listen(port,() => {
+    console.log("The server is running on port" + port);
 })
